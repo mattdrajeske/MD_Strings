@@ -9,6 +9,7 @@ using namespace std;
 
 void reverse(string&);
 void putInMiddle(string, string&);
+int countSpecial(string);
 
 int main()
 {
@@ -26,7 +27,9 @@ int main()
 	reverse(rand);
 	putInMiddle(rand, name);
 
-	cout << "\n" << name << "\n\n";
+	cout << "\n" << name << "\n";
+
+	cout << "\nThere are " << countSpecial(name) << " special characters.\n\n";
 
 }
 
@@ -45,3 +48,16 @@ void putInMiddle(string reversedRand, string& name) {
 	name = str1 + " " + name + " " + str2;
 }
 
+int countSpecial(string str) {
+	int numSpecial = 0;
+	
+	for (int i = 0; i < str.length(); i++) {
+		if (!(isalpha(str[i]) || isdigit(str[i]) 
+			 || str[i] == '_' || str[i] == ' ')) {
+			numSpecial++;
+		}
+	}
+
+	return numSpecial;
+
+}
